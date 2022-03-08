@@ -3,7 +3,7 @@ package com.furkan.beinConnectMovies.data.remote.repository
 import com.furkan.beinConnectMovies.data.remote.dto.Callback
 import com.furkan.beinConnectMovies.utils.Sources.API_KEY
 import com.furkan.beinConnectMovies.utils.model.ErrorModel
-import com.inferne.teamso.data.remote.dto.ApiClient
+import com.furkan.beinConnectMovies.data.remote.dto.ApiClient
 
 class MoviesRepository {
 

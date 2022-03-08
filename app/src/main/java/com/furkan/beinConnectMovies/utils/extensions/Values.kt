@@ -1,6 +1,5 @@
 package com.furkan.beinConnectMovies.utils.extensions
 
-import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
 import com.furkan.beinConnectMovies.app.App
 

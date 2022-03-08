@@ -31,7 +31,7 @@ class DetailActivity : AppCompatActivity(), Player.Listener {
     private lateinit var binding: ActivityDetailBinding
     private lateinit var simpleExoPlayer: ExoPlayer
     private var isInPipMode: Boolean = false
-    private var isPIPModeeEnabled: Boolean = true
+    private var isPIPModeEnabled: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -150,7 +150,7 @@ class DetailActivity : AppCompatActivity(), Player.Listener {
 
     @RequiresApi(Build.VERSION_CODES.N)
     fun checkPIPPermission() {
-        isPIPModeeEnabled = isInPictureInPictureMode
+        isPIPModeEnabled = isInPictureInPictureMode
         if (!isInPictureInPictureMode) {
             onBackPressed()
         }

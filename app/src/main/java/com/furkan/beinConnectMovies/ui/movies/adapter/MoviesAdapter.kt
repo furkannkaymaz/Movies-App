@@ -33,7 +33,7 @@ class MoviesAdapter(private var items: List<MoviesResult>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val spot = items.get(position)
+        val spot = items[position]
 
         Glide.with(holder.itemView.context)
             .load("http://image.tmdb.org/t/p/w185" + spot.posterPath)

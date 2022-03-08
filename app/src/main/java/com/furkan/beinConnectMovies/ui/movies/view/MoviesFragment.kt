@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.furkan.beinConnectMovies.R
 import com.furkan.beinConnectMovies.data.remote.model.GenreObject
-import com.furkan.beinConnectMovies.data.remote.model.MoviesModel
 import com.furkan.beinConnectMovies.data.remote.model.MoviesResult
 import com.furkan.beinConnectMovies.databinding.FragmentMoviesBinding
 import com.furkan.beinConnectMovies.ui.movies.adapter.MoviesAdapter
