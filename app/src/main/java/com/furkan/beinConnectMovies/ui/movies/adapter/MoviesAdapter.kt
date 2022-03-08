@@ -40,11 +40,11 @@ class MoviesAdapter(private var items: List<MoviesResult>) :
             .transform(CenterCrop(), RoundedCorners(35))
             .into(holder.photo)
 
-        DetailActivity.moviesInfo = spot
+
 
         holder.text.text = spot.title
         holder.photo.setOnClickListener {
-
+            DetailActivity.moviesInfo = spot
             val intent = Intent(it.context, DetailActivity::class.java)
             it.context.startActivity(intent)
         }

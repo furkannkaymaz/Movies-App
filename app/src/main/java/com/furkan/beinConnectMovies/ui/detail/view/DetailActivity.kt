@@ -39,6 +39,7 @@ class DetailActivity : AppCompatActivity(), Player.Listener {
         setContentView(binding.root)
 
         hideTopMenu()
+        binding.titleTrailers.text = moviesInfo?.title
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
@@ -61,7 +62,7 @@ class DetailActivity : AppCompatActivity(), Player.Listener {
         simpleExoPlayer.playWhenReady = true
         simpleExoPlayer.addListener(this@DetailActivity)
 
-        binding.titleTrailers.text = moviesInfo?.title
+
         binding.player.setControllerVisibilityListener { visibility ->
             if (visibility == View.VISIBLE) {
                 binding.titleTrailers.visibility = View.VISIBLE
