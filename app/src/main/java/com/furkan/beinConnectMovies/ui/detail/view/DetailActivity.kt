@@ -8,13 +8,14 @@ import android.content.res.Configuration
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
+import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.furkan.beinConnectMovies.MainActivity
+import com.furkan.beinConnectMovies.data.remote.model.MoviesResult
 import com.furkan.beinConnectMovies.databinding.ActivityDetailBinding
 import com.furkan.beinConnectMovies.utils.Sources.VIDEO_URL
 import com.google.android.exoplayer2.*
@@ -22,6 +23,10 @@ import com.google.android.exoplayer2.util.MimeTypes
 
 
 class DetailActivity : AppCompatActivity(), Player.Listener {
+
+    companion object {
+        var moviesInfo: MoviesResult? = null
+    }
 
     private lateinit var binding: ActivityDetailBinding
     private lateinit var simpleExoPlayer: ExoPlayer
@@ -50,10 +55,20 @@ class DetailActivity : AppCompatActivity(), Player.Listener {
             .setMimeType(MimeTypes.APPLICATION_M3U8)
             .build()
 
+
         simpleExoPlayer.addMediaItem(media)
         simpleExoPlayer.prepare()
         simpleExoPlayer.playWhenReady = true
         simpleExoPlayer.addListener(this@DetailActivity)
+
+        binding.titleTrailers.text = moviesInfo?.title
+        binding.player.setControllerVisibilityListener { visibility ->
+            if (visibility == View.VISIBLE) {
+                binding.titleTrailers.visibility = View.VISIBLE
+            } else {
+                binding.titleTrailers.visibility = View.GONE
+            }
+        }
 
         hideTopMenu()
 
@@ -84,7 +99,7 @@ class DetailActivity : AppCompatActivity(), Player.Listener {
     override fun onDestroy() {
         simpleExoPlayer.stop()
         simpleExoPlayer.clearMediaItems()
-
+        moviesInfo = null
         super.onDestroy()
     }
 

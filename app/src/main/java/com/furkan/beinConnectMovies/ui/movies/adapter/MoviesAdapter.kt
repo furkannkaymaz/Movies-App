@@ -15,7 +15,8 @@ import com.furkan.beinConnectMovies.data.remote.model.MoviesResult
 import com.furkan.beinConnectMovies.ui.detail.view.DetailActivity
 
 
-class MoviesAdapter(private var items: List<MoviesResult>) : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
+class MoviesAdapter(private var items: List<MoviesResult>) :
+    RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -31,14 +32,15 @@ class MoviesAdapter(private var items: List<MoviesResult>) : RecyclerView.Adapte
         this.items = data
     }
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val spot = items.get(position)
 
         Glide.with(holder.itemView.context)
-            .load("http://image.tmdb.org/t/p/w185"+spot.posterPath)
+            .load("http://image.tmdb.org/t/p/w185" + spot.posterPath)
             .transform(CenterCrop(), RoundedCorners(35))
             .into(holder.photo)
+
+        DetailActivity.moviesInfo = spot
 
         holder.text.text = spot.title
         holder.photo.setOnClickListener {

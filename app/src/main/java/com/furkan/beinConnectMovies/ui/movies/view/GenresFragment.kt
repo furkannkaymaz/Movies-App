@@ -16,9 +16,7 @@ import com.furkan.beinConnectMovies.databinding.FragmentGenresBinding
 import com.furkan.beinConnectMovies.ui.movies.adapter.GenresPagerAdapter
 import com.furkan.beinConnectMovies.ui.movies.viewmodels.GenresViewModel
 import com.google.android.material.tabs.TabLayout
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 
 class GenresFragment : Fragment() {
@@ -42,8 +40,10 @@ class GenresFragment : Fragment() {
 
         adapter = GenresPagerAdapter(childFragmentManager)
         genreId = "28"
+
         getData()
     }
+
 
     private fun getData() {
         CoroutineScope(Dispatchers.Main).launch {
@@ -93,4 +93,6 @@ class GenresFragment : Fragment() {
             }
         })
     }
+
+
 }

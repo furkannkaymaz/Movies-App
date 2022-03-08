@@ -6,4 +6,5 @@
     <string name="movie_name">Movie Name</string>
     <string name="search">Arama</string>
     <string name="error">Beklenmedik bir hata oluştu</string>
+    <string name="appName">beIN CONNECT Türkiye</string>
 </resources>
